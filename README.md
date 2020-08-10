@@ -7,7 +7,7 @@ This repo contains the essentials for you to run StaG with only one dependency, 
 2. Sudo access for Singularity
 
 ### What do the files mean?
-`startscript.sh` initiates the first container layer `stag.sif`, which only contains Singularity and Snakemake, with correct bind paths. `stag.sif` will open in your `$PWD` and run `runscript.sh`. `runscript.sh` contains the second layer of path variables and will initiate the snakemake workflow. Because Singularity in Singularity is only executable as root, all files managed through the container will have restricted permissions. At the end of the workflow permissions in `/workdir` and `/output_dir` is changed to `777`.
+`startscript.sh` initiates the first container layer `stag.sif`, which only contains Singularity and Snakemake, with correct bind paths. `stag.sif` will open in your `$PWD` and run `runscript.sh`. `runscript.sh` contains the second layer of path variables and will initiate the snakemake workflow. Because Singularity in Singularity is only executable as root, all files managed through the container will have restricted permissions. At the end of the workflow permissions in `/workdir` and `/output_dir` are changed to `777`.
 
 ### How do I get started?
 1. Build the image.
