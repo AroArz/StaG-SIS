@@ -8,6 +8,7 @@ Output=/output_dir
 Database=/db
 Workdir=/workdir
 
+export SINGULARITY_CACHEDIR=$Output 
 
 ### Cloning repository
 
@@ -20,10 +21,9 @@ cd /workdir
 snakemake \
 	--use-singularity \
 	--singularity-args \
-	"-B $Input,$Output,$Workdir,$Database" \
+	"--fakeroot --net -B $Input,$Output,$Workdir,$Database" \
 	$@
 
 ### Changing permission of files
-chmod -R 777 /output_dir
-chmod -R 777 /workdir
-
+#chmod -R 777 /output_dir
+#chmod -R 777 /workdir  
