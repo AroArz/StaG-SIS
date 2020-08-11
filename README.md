@@ -15,7 +15,16 @@ This repo contains the essentials for you to run StaG with only one dependency, 
 ```
 sudo singularity build stag.sif stag.def
 ```
-2. Your input directory should be located in the same directory and named `input`.
+2. This should be your directory structure
+```
+StaG-SIS/
+├ input
+├ README.md
+├ runscript.sh
+├ stag.def
+├ stag.sif
+├ startscript.sh
+```
 
 3. `bash startscript.sh --dryrun`
 
