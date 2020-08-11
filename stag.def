@@ -4,8 +4,14 @@ From: quay.io/sebio/docker-snakemake:latest
 %post
         apt-get install -y vim
         apt-get install -y git
+        apt-get install -y uidmap
 
         sed -i 's/if not LooseVersion(v) >= LooseVersion("2.4.1"):/if not str(LooseVersion(v)) >= str(LooseVersion("2.4.1")):/' /opt/conda/envs/snakemake/lib/python3.6/site-packages/snakemake/deployment/singularity.py
+
+        ln -s /opt/conda/bin/unsquashfs /usr/local/bin/unsquashfs
+
+        echo aron.arzoomand:100000:65536 >> /etc/subuid
+        echo aron.arzoomand:100000:65536 >> /etc/subgid
 
         git clone --branch ctmr-dnbseq-preproc https://github.com/AroArz/stag-mwc
 
